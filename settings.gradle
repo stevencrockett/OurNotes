@@ -1,3 +1,4 @@
 rootProject.name = 'OurNotes'
 include 'app'
+include 'api'
 
