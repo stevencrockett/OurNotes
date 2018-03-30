@@ -4,4 +4,6 @@ jar {enabled = true}
 
 dependencies {
     compile project(':api')
+
+    compile('org.springframework.boot:spring-boot-starter-test')
 }
