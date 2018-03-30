@@ -1,6 +1,5 @@
 package com.crockett.ournotes.application.adapters;
 
-import com.crockett.ournotes.api.CreateNote;
 import com.crockett.ournotes.application.service.OurNotesService;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,14 +7,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static com.crockett.ournotes.testing.data.TestData.A_CREATE_NOTE_COMMAND;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OurNotesRestClientImplTest {
-
-    private static final String A_GROUP_ID = "GROUP_ID";
-    private static final String SOME_CONTENT = "NOTE_CONTENT";
-    private static final CreateNote A_CREATE_NOTE_COMMAND = new CreateNote(A_GROUP_ID, SOME_CONTENT);
 
     @Mock
     private OurNotesService ourNotesService;

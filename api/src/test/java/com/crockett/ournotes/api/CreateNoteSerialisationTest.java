@@ -7,17 +7,14 @@ import org.springframework.boot.test.json.JacksonTester;
 
 import java.io.IOException;
 
+import static com.crockett.ournotes.testing.data.TestData.A_CREATE_NOTE_COMMAND;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateNoteSerialisationTest {
 
-    private static final String A_GROUP_ID = "GROUP_ID";
-    private static final String SOME_CONTENT = "NOTE_CONTENT";
-    private static final CreateNote A_CREATE_NOTE_COMMAND = new CreateNote(A_GROUP_ID, SOME_CONTENT);
-
     private static final String EXPECTED_JSON = "{" +
             "\"groupId\":\"GROUP_ID\"," +
-            "\"content\":\"NOTE_CONTENT\"" +
+            "\"content\":\"WRITE STUFF HERE\"" +
             "}";
 
     private JacksonTester<CreateNote> json;

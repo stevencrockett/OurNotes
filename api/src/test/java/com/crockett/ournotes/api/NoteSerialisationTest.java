@@ -7,15 +7,13 @@ import org.springframework.boot.test.json.JacksonTester;
 
 import java.io.IOException;
 
+import static com.crockett.ournotes.testing.data.TestData.A_NOTE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NoteSerialisationTest {
 
-    private static final String SOME_CONTENT = "NOTE_CONTENT";
-    private static final Note A_NOTE = new Note(SOME_CONTENT);
-
     private static final String EXPECTED_JSON = "{" +
-            "\"content\":\"NOTE_CONTENT\"" +
+            "\"content\":\"WRITE STUFF HERE\"" +
             "}";
 
     private JacksonTester<Note> json;

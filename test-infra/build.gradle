@@ -3,5 +3,5 @@ bootJar { enabled = false }
 jar {enabled = true}
 
 dependencies {
-    testCompile project(':test-infra')
+    compile project(':api')
 }
