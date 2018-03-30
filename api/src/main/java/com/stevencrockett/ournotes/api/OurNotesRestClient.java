@@ -10,6 +10,7 @@ public interface OurNotesRestClient {
     String helloWorld();
 
     @PostMapping(value = "/notes")
+    @ResponseBody
     void createNote(CreateNote command);
 
 }
