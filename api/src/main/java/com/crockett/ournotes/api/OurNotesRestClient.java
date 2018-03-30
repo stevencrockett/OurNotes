@@ -1,8 +1,6 @@
 package com.crockett.ournotes.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(value = "/ournotes/api/v1")
 public interface OurNotesRestClient {
@@ -10,5 +8,8 @@ public interface OurNotesRestClient {
     @GetMapping(value = "/hello-world")
     @ResponseBody
     String helloWorld();
+
+    @PostMapping(value = "/notes")
+    void createNote(CreateNote command);
 
 }

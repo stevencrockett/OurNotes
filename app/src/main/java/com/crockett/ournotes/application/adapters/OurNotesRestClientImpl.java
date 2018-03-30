@@ -1,5 +1,6 @@
 package com.crockett.ournotes.application.adapters;
 
+import com.crockett.ournotes.api.CreateNote;
 import com.crockett.ournotes.api.OurNotesRestClient;
 import com.crockett.ournotes.application.service.OurNotesService;
 import org.slf4j.Logger;
@@ -19,6 +20,12 @@ public class OurNotesRestClientImpl implements OurNotesRestClient {
     public String helloWorld() {
         log.info("Received hello world request");
         return ourNotesService.helloWorld();
+    }
+
+    @Override
+    public void createNote(CreateNote command) {
+        log.info("Received create note command");
+        ourNotesService.createNote(command);
     }
 
 }
