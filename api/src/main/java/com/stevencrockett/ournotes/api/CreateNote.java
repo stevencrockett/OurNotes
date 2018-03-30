@@ -5,6 +5,10 @@ public class CreateNote {
     private final String groupId;
     private final String content;
 
+    private CreateNote() {
+        this(null, null);
+    }
+
     public CreateNote(String groupId, String content) {
         this.groupId = groupId;
         this.content = content;
