@@ -7,6 +7,7 @@ import org.springframework.boot.test.json.JacksonTester;
 
 import java.io.IOException;
 
+import static com.stevencrockett.ournotes.testing.assertions.CreateNoteAssert.assertThat;
 import static com.stevencrockett.ournotes.testing.data.TestData.A_CREATE_NOTE_COMMAND;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +24,12 @@ public class CreateNoteSerialisationTest {
     public void setUp() {
         ObjectMapper objectMapper = new ObjectMapper();
         JacksonTester.initFields(this, objectMapper);
+    }
+
+    @Test
+    public void testReadJson() throws IOException {
+        CreateNote actual = json.parse(EXPECTED_JSON).getObject();
+        assertThat(actual).isEqualTo(A_CREATE_NOTE_COMMAND);
     }
 
     @Test
