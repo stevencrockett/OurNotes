@@ -15,7 +15,7 @@ public interface OurNotesRestClient {
     @ResponseBody
     void createNote(CreateNote command);
 
-    @GetMapping(value = "/groups/{}/notes")
+    @GetMapping(value = "/groups/{groupId}/notes")
     @ResponseBody
     Collection<Note> getNotesForGroup(@PathVariable String groupId);
 
