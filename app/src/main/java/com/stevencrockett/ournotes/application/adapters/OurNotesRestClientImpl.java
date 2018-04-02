@@ -24,7 +24,7 @@ public class OurNotesRestClientImpl implements OurNotesRestClient {
 
     @Override
     public void createNote(CreateNote command) {
-        log.info("Received create note command");
+        log.info("Received create note command: {}", command);
         ourNotesService.createNote(command);
     }
 
