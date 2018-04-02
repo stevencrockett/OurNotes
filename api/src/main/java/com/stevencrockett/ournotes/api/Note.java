@@ -4,6 +4,8 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.util.Optional;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
 public class Note {
 
     private final String id;
@@ -28,7 +30,7 @@ public class Note {
 
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this);
+        return ReflectionToStringBuilder.toString(this, SHORT_PREFIX_STYLE);
     }
 
 }

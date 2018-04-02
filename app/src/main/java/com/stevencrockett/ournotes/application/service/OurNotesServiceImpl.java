@@ -6,6 +6,8 @@ import com.stevencrockett.ournotes.application.repository.MongoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
+
 public class OurNotesServiceImpl implements OurNotesService {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
@@ -27,6 +29,11 @@ public class OurNotesServiceImpl implements OurNotesService {
         Note note = new Note(command.getContent());
         log.info("Created note from command: {}", note);
         mongoRepository.insert(command.getGroupId(), note);
+    }
+
+    @Override
+    public Collection<Note> getNotesForGroup(String groupId) {
+        return mongoRepository.retrieve(groupId);
     }
 
 }

@@ -2,6 +2,7 @@ package com.stevencrockett.ournotes.config.repository;
 
 import com.stevencrockett.ournotes.application.repository.MongoRepository;
 import com.stevencrockett.ournotes.application.repository.MongoRepositoryImpl;
+import com.stevencrockett.ournotes.application.repository.persistence.MongoNoteToNoteMapper;
 import com.stevencrockett.ournotes.application.repository.persistence.NoteToMongoNoteMapper;
 import com.stevencrockett.ournotes.config.repository.persistence.NoteMapperConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,10 +24,12 @@ public class MongoRepositoryConfig {
     private MongoTemplate mongoTemplate;
     @Resource
     private NoteToMongoNoteMapper noteToMongoNoteMapper;
+    @Resource
+    private MongoNoteToNoteMapper mongoNoteToNoteMapper;
 
     @Bean
     public MongoRepository mongoRepository() {
-        return new MongoRepositoryImpl(mongoTemplate, mongoCollectionName, noteToMongoNoteMapper);
+        return new MongoRepositoryImpl(mongoTemplate, mongoCollectionName, noteToMongoNoteMapper, mongoNoteToNoteMapper);
     }
 
 }
