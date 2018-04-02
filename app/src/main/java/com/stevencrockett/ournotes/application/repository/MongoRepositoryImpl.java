@@ -15,8 +15,6 @@ import static java.util.stream.Collectors.toList;
 
 public class MongoRepositoryImpl implements MongoRepository {
 
-    private static final Criteria SELECT_DOCUMENTS_WHERE_GROUP_ID = Criteria.where("groupId");
-
     private final MongoTemplate mongoTemplate;
     private final String mongoCollectionName;
     private final NoteToMongoNoteMapper noteToMongoNoteMapper;
@@ -40,7 +38,7 @@ public class MongoRepositoryImpl implements MongoRepository {
 
     @Override
     public Collection<Note> retrieve(String groupId) {
-        Query query = new Query(SELECT_DOCUMENTS_WHERE_GROUP_ID.is(groupId));
+        Query query = new Query(Criteria.where("groupId").is(groupId));
 
         List<MongoNote> storedMongoNotes = mongoTemplate.find(query, MongoNote.class, mongoCollectionName);
         List<Note> notes = storedMongoNotes.stream()
