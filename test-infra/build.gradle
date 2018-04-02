@@ -1,9 +1,10 @@
 
 bootJar { enabled = false }
-jar {enabled = true}
+jar { enabled = true }
 
 dependencies {
     compile project(':api')
+    compile project(':app')
 
     compile('org.springframework.boot:spring-boot-starter-test')
 }
