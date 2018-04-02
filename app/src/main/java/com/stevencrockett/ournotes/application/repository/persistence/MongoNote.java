@@ -3,6 +3,8 @@ package com.stevencrockett.ournotes.application.repository.persistence;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.Id;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
 public class MongoNote {
 
     @Id
@@ -38,7 +40,7 @@ public class MongoNote {
 
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this);
+        return ReflectionToStringBuilder.toString(this, SHORT_PREFIX_STYLE);
     }
 
 }
