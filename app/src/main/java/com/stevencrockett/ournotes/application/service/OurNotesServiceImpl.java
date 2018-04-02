@@ -36,4 +36,9 @@ public class OurNotesServiceImpl implements OurNotesService {
         return mongoRepository.retrieve(groupId);
     }
 
+    @Override
+    public void deleteNote(String noteId) {
+        mongoRepository.delete(noteId);
+    }
+
 }

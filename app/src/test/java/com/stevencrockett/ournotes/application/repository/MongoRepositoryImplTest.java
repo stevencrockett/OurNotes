@@ -18,7 +18,9 @@ import java.util.Collections;
 
 import static com.stevencrockett.ournotes.testing.data.TestData.A_GROUP_ID;
 import static com.stevencrockett.ournotes.testing.data.TestData.A_MONGO_COLLECTION_NAME;
+import static com.stevencrockett.ournotes.testing.data.TestData.A_MONGO_DOCUMENT_ID;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -63,6 +65,15 @@ public class MongoRepositoryImplTest {
 
         Collection<Note> actual = underTest.retrieve(A_GROUP_ID);
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldDeleteNoteByDocumentId() {
+        Query expectedQuery = new Query(Criteria.where("_id").is(A_MONGO_DOCUMENT_ID));
+
+        underTest.delete(A_MONGO_DOCUMENT_ID);
+
+        verify(mongoTemplate).remove(expectedQuery, A_MONGO_COLLECTION_NAME);
     }
 
 }

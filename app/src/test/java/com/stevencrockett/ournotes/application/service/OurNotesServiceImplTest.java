@@ -59,4 +59,11 @@ public class OurNotesServiceImplTest {
         assertThat(actual).isEqualTo(someNotes);
     }
 
+    @Test
+    public void shouldDeleteNoteViaRepository() {
+        underTest.deleteNote(A_MONGO_DOCUMENT_ID);
+
+        verify(mongoRepository).delete(A_MONGO_DOCUMENT_ID);
+    }
+
 }

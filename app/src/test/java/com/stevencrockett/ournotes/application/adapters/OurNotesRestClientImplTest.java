@@ -10,9 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.*;
 
-import static com.stevencrockett.ournotes.testing.data.TestData.A_CREATE_NOTE_COMMAND;
-import static com.stevencrockett.ournotes.testing.data.TestData.A_GROUP_ID;
-import static com.stevencrockett.ournotes.testing.data.TestData.A_NOTE;
+import static com.stevencrockett.ournotes.testing.data.TestData.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -53,6 +51,13 @@ public class OurNotesRestClientImplTest {
         Collection<Note> actual = underTest.getNotesForGroup(A_GROUP_ID);
 
         assertThat(actual).isEqualTo(SOME_NOTES);
+    }
+
+    @Test
+    public void shouldDelegateNoteDeletionToService() {
+        underTest.deleteNote(A_MONGO_DOCUMENT_ID);
+
+        verify(ourNotesService).deleteNote(A_MONGO_DOCUMENT_ID);
     }
 
 }

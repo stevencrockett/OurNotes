@@ -38,4 +38,10 @@ public class OurNotesRestClientImpl implements OurNotesRestClient {
         return ourNotesService.getNotesForGroup(groupId);
     }
 
+    @Override
+    public void deleteNote(@PathVariable String noteId) {
+        log.info("Deleting note with id: [{}]", noteId);
+        ourNotesService.deleteNote(noteId);
+    }
+
 }

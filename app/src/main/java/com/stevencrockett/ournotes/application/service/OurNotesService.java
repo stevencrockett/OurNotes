@@ -13,4 +13,6 @@ public interface OurNotesService {
 
     Collection<Note> getNotesForGroup(String groupId);
 
+    void deleteNote(String noteId);
+
 }
