@@ -10,4 +10,6 @@ public interface MongoRepository {
 
     Collection<Note> retrieve(String groupId);
 
+    void delete(String noteId);
+
 }

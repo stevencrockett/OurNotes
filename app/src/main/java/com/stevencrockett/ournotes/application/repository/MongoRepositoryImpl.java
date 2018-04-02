@@ -48,4 +48,10 @@ public class MongoRepositoryImpl implements MongoRepository {
         return notes;
     }
 
+    @Override
+    public void delete(String noteId) {
+        Query query = new Query(Criteria.where("_id").is(noteId));
+        mongoTemplate.remove(query, mongoCollectionName);
+    }
+
 }

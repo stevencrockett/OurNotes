@@ -19,4 +19,8 @@ public interface OurNotesRestClient {
     @ResponseBody
     Collection<Note> getNotesForGroup(@PathVariable String groupId);
 
+    @DeleteMapping(value = "/notes/{noteId}")
+    @ResponseBody
+    void deleteNote(@PathVariable String noteId);
+
 }
