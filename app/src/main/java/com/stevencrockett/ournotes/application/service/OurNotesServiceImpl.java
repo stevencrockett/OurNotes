@@ -33,7 +33,7 @@ public class OurNotesServiceImpl implements OurNotesService {
 
     @Override
     public Collection<Note> getNotesForGroup(String groupId) {
-        return null;
+        return mongoRepository.retrieve(groupId);
     }
 
 }
